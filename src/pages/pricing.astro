@@ -6,70 +6,68 @@ import PricingCard from "@components/pricing.astro";
 
 const pricing = [
   {
-    name: "Personal",
-    price: "Free",
+    name: "Startup",
+    price: "$125",
     popular: false,
     features: [
-      "Lifetime free",
-      "Up to 3 users",
-      "Unlimited Pages",
-      "Astro Sub domain",
-      "Basic Integrations",
-      "Community Support",
+      "Custom, Detailed Reports",
+      "Collaborative Shortlisting",
+      "Up to 20 Domains",
+      "Optional Onboarding Call",
+      "Search Volume Analysis",
+      "Keyword Reports",
+      "Competition Analysis",
+      "Trend Forecasting",
     ],
     button: {
       text: "Get Started",
-      link: "/",
+      link: "mailto:will@officialdomains.com",
     },
   },
   {
-    name: "Startup",
-    price: {
-      monthly: "$19",
-      annual: "$16",
-      discount: "10%",
-      original: "$24",
-    },
+    name: "Rush",
+    price: "$250",
     popular: true,
     features: [
-      "All Free Features",
-      "Up to 20 users",
-      "20 Custom domains",
-      "Unlimited Collaborators",
-      "Advanced Integrations",
-      "Priority Support",
+      "All Startup Features",
+      "Up to 50 Domains",
+      "Optional Onboarding Call",
+      "Optional Premium Domains",
+      "3 Day Turnaround",
+      "Custom Reporting Available",
+      "Trend Forecasting",
     ],
     button: {
       text: "Get Started",
-      link: "#",
+      link: "mailto:will@officialdomains.com",
     },
   },
   {
-    name: "Enterprise",
-    price: "Custom",
+    name: "Brokerage",
+    price: "12%",
     popular: false,
     features: [
-      "All Pro Features",
-      "Unlimited Custom domains",
-      "99.99% Uptime SLA",
-      "SAML & SSO Integration",
-      "Dedicated Account Manager",
-      "24/7 Phone Support",
+      "Sell & Buy Side",
+      "Minimum $1,000 fee",
+      "Expert Negotiations",
+      "Cold Outreach Available",
+      "Dedicated Support",
     ],
     button: {
-      text: "Contact us",
-      link: "/contact",
+      text: "Email Domains",
+      link: "mailto:will@officialdomains.com",
     },
   },
 ];
 ---
 
 <Layout title="Pricing">
+  <script is:inline src="https://unpkg.com/mailgo@0.12.2/dist/mailgo.min.js"></script>
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Pricing</Fragment>
+      <Fragment slot="title">Domain Acquisition</Fragment>
       <Fragment slot="desc">
-        Simple & Predictable pricing. No Surprises.
+        Simple Pricing. Email me to Get Started.
       </Fragment>
     </Sectionhead>
 

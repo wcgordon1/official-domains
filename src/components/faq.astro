@@ -1,0 +1,86 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon/components";
+
+const features = [
+  {
+    title: "ExpiredDomains.net",
+    description:
+      "Dig through the trash, you never know what you'll find.",
+    icon: "bx:bxs-briefcase",
+  },
+  {
+    title: "SemRush",
+    description:
+      "Find the best keywords and analyze your competition.",
+    icon: "bx:bxs-window-alt",
+  },
+  {
+    title: "Ahrefs",
+    description:
+      "Just like SemRush, but different. Second set of eyes.",
+    icon: "bx:bxs-data",
+  },
+  {
+    title: "Rosener Equation",
+    description:
+      "Domain Value = Monthly Search Volume × CPC × Extension Multiplier.",
+    icon: "bx:bxs-bot",
+  },
+  {
+    title: "DotDB",
+    description:
+      "See what people are building and popularity.",
+    icon: "bx:bxs-file-find",
+  },
+  {
+    title: "Google Trends",
+    description:
+      "See what's trending. Pretty self explanatory.",
+    icon: "bx:bxs-user",
+  },
+  {
+    title: "NameBio",
+    description:
+      "Historical Sales Data. Shout out to them for the free lifetime access.",
+    icon: "bx:bxs-data",
+  },
+  {
+    title: "Trending Tools",
+    description:
+      "Gummysearch, ExplodingTopics, Sparktoro, etc. Tons of options.",
+    icon: "bx:bxs-bot",
+  },
+  {
+    title: "2 Hours per Day",
+    description:
+      "Minimum. Like anything, the more you put in, the more you get out.",
+    icon: "bx:bxs-user",
+  },
+];
+---
+
+<div id="diy" class="mt-20 md:mt-0">
+  <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+    Do it Yourself 
+  </h2>
+  <p class="text-lg mt-4 text-slate-600">
+    Some of the best freeish tools I use to find and evaluate domain names. Minus 25 years of experience.
+  </p>
+</div>
+
+<div class="grid sm:grid-cols-2 md:grid-cols-3 mt-16 gap-16">
+  {
+    features.map((item) => (
+      <div class="flex gap-4 items-start">
+        <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
+          <Icon class="text-white" name={item.icon} />
+        </div>
+        <div>
+          <h3 class="font-semibold text-lg">{item.title}</h3>{" "}
+          <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+        </div>
+      </div>
+    ))
+  }
+</div>
