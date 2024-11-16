@@ -9,7 +9,7 @@ image: {
 publishDate: "2024-11-12 11:39"
 category: "Domain Name Evaluation"
 author: "Will G"
-tags: [Domain Names, Valuation, Business, Branding]
+tags: [Domain Names, Valuation, Business, Sales]
 ---
 
 ## Why Your Domain Name Could Make Your Business: A Data-Driven Analysis
