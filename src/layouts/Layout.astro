@@ -5,19 +5,12 @@ import Navbar from "@components/navbar/navbar.astro";
 import "@fontsource-variable/inter/index.css";
 import '@fontsource-variable/bricolage-grotesque';
 
-
-
 export interface Props {
   title: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
-
-const resolvedImageWithDomain = new URL(
-  "/odh.png",
-  Astro.site
-).toString();
-
+const resolvedImageWithDomain = new URL("/odh.png", Astro.site).toString();
 const { title } = Astro.props;
 
 const makeTitle = title
@@ -32,8 +25,12 @@ const makeTitle = title
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- Analytics -->
+    <script defer src="https://api.pirsch.io/pa.js"
+      id="pianjs"
+      data-code="k0Du16rMt4FZwrRc9ngLMv8Jn44mFsrD"></script>
 
-    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
       description="Official Domains helps businesses analyze and acquire domain names."
@@ -53,16 +50,23 @@ const makeTitle = title
         image: {
           alt: "Official Domains Homepage Screenshot",
         },
-      }}
+      }}      
     />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "url": "https://www.officialdomains.com",
+        "name": "Official Domains",
+        "description": "Expert domain name acquisition and brokerage services. Find the perfect domain name for your business with our expert domain name services."
+      }
+      </script>  
   </head>
   <body>
     <Navbar />
     <slot />
     <Footer />
     <style is:global>
-      /* Improve Page speed */
-      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
       img {
         content-visibility: auto;
       }

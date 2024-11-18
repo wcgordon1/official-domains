@@ -1,0 +1,65 @@
+---
+const features = [
+  {
+    title: "How do I find the value of my domain name?",
+    description: "You can find the value of your domain name using data-driven tools that assess search traffic, brand potential, and SEO metrics. OfficialDomains.com offers a comprehensive ROI assessment for every domain."
+  },
+  {
+    title: "Where can I get good domains for cheap?",
+    description: "You can find affordable, high-quality .com domains at OfficialDomains.com. We provide a curated selection of brandable names with strong market potential."
+  },
+  {
+    title: "Are there any available .com domains worth buying?",
+    description: "Yes, there are still valuable .com domains available. OfficialDomains.com specializes in identifying premium .com domains with proven search traffic and brand potential."
+  },
+  {
+    title: "How do I choose the best domain name for my business?",
+    description: "The best domain name for your business should be brandable, memorable, and have proven search traffic. Our Name Exploration feature helps you find the perfect fit with three curated lists: Searchable, Brandable, & Personal Picks."
+  },
+  {
+    title: "What is the best way to sell my domain name?",
+    description: "To sell your domain name effectively, you need a clear valuation and market analysis. At OfficialDomains.com, we provide an Authority Metrics and Market Analysis feature to help you price your domain accurately."
+  },
+  {
+    title: "Can I get an SEO analysis for a domain before I buy it?",
+    description: "Yes, OfficialDomains.com offers an in-depth SEO analysis of each domain's potential, helping you make an informed decision before purchasing. If it is available to hand register, I recommend you do so."
+  }
+];
+
+// Convert features to FAQ structured data
+const faqStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": features.map(feature => ({
+    "@type": "Question",
+    "name": feature.title,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": feature.description
+    }
+  }))
+};
+---
+
+<div class="mt-16 md:mt-24">
+    <h2 class="font-bold text-3xl text-gray-800">
+    Finding Great Domain Names
+  </h2>
+  <p class="text-lg mt-4 text-slate-600">
+    There are still great domain names available. I've built the ultimate analysis to help you secure names that win.
+  </p>
+</div>
+
+<div class="grid sm:grid-cols-2 mt-16 gap-16">
+  {
+    features.map((item) => (
+      <div class="flex flex-col gap-4">
+        <h3 class="font-semibold text-lg">{item.title}</h3>
+        <p class="text-slate-500 mt-2 leading-relaxed">{item.description}</p>
+      </div>
+    ))
+  }
+</div>
+
+<!-- Add FAQ Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(faqStructuredData)} />

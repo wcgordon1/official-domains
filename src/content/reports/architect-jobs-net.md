@@ -2,18 +2,18 @@
 title: "ArchitectJobs.net"
 description: "Detailed analysis and report for ArchitectJobs.net, including SEO metrics, domain history, and estimated value."
 domainName: "ArchitectJobs.net"
-domainValue: "$10,000"
+domainValue: "5 - 8K"
 publishDate: 2024-03-17
 author: "Will Gordon"
 category: "Domain Reports"
 tags: ["Domain Valuation", "SEO Metrics", "Market Analysis"]
 draft: false
-reportType: "Domain Analysis"
-status: "Available"
+reportType: "Full Report"
+status: "Taken: 10-27-24"
 ---
 
 ### Table of Contents
-1. [Executive Summary](#executive-summary)
+1. [Summary](#summary)
 2. [Historical Sales](#historical-sales)
 2. [Domain Metrics Analysis](#domain-metrics-analysis)
 3. [Market Size & Potential](#market-size--potential)
@@ -27,14 +27,14 @@ status: "Available"
 
 ---
 
-## Executive Summary
+## Summary
 
 ArchitectJobs.net represents a specialized job board opportunity in the architecture sector. This report analyzes its potential value and market opportunity using multiple valuation methodologies and market research data.
 
 ### Key Findings
-- Monthly Search Volume: 27,400 exact match searches
-- Average CPC: $4.82
-- Industry Growth Rate: 3.2% YoY
+- Global Search Volume: 13,600 exact match searches 
+- Average CPC is low: $0.12 - $1.73
+- Industry Growth Rate: 8% (Faster than average)  
 - Market Size: $12.8B (Architecture Job Market)
 - Competition Level: Medium
 - Estimated Annual Revenue Potential: $840,000

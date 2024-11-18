@@ -4,7 +4,7 @@ import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
 import ReportsGrid from "@components/ReportsGrid.astro";
-
+import FaqHead from "@components/FaqHead.astro";
 // Filter report entries with 'draft: false' & date before current date
 const publishedReportEntries = await getCollection("reports", ({ data }) => {
   return !data.draft && data.publishDate < new Date();
@@ -28,9 +28,8 @@ publishedReportEntries.sort(function (a, b) {
     </Sectionhead>
     
     <div class="mt-16 mb-16">
-      
-      
       <ReportsGrid reports={publishedReportEntries} />
     </div>
+    <FaqHead />
   </Container>
 </Layout>
