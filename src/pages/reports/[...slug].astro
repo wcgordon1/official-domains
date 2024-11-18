@@ -1,0 +1,21 @@
+---
+import { getCollection } from "astro:content";
+import ReportLayout from "@layouts/ReportLayout.astro";
+
+// Generate static paths for all reports
+export async function getStaticPaths() {
+  const reportEntries = await getCollection("reports");
+  return reportEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+// Get the report entry from props
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<ReportLayout frontmatter={entry.data}>
+  <Content />
+</ReportLayout> 

@@ -1,0 +1,110 @@
+---
+import Container from "@components/container.astro";
+import { getFormattedDate } from "@utils/all";
+import Layout from "./Layout.astro";
+import { getCollection } from "astro:content";
+import ReportsGrid from "@components/ReportsGrid.astro";
+
+const { frontmatter } = Astro.props;
+
+// Get all report entries
+const publishedReportEntries = await getCollection("reports", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+
+// Sort reports by date
+publishedReportEntries.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+// Get related reports (excluding current report)
+const relatedReports = publishedReportEntries
+  .filter(report => report.data.title !== frontmatter.title)
+  .slice(0, 3);
+---
+
+<Layout 
+  title={frontmatter.title}
+  description={frontmatter.description || `Report about ${frontmatter.title} - Official Domains analysis and insights.`}>
+  <Container>
+    <div class="mx-auto max-w-[735px] mt-14">
+      {/* Report Header */}
+      <div class="bg-white rounded-lg shadow-sm border p-6 mb-8">
+        <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+          {frontmatter.category}
+        </span>
+        <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight">
+          {frontmatter.title}
+        </h1>
+        
+        {/* Domain Quick Stats */}
+        <div class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-y">
+          <div>
+            <div class="text-sm text-gray-500">Domain Name</div>
+            <div class="font-semibold">{frontmatter.domainName}</div>
+          </div>
+          <div>
+            <div class="text-sm text-gray-500">Status</div>
+            <div class="font-semibold">{frontmatter.status}</div>
+          </div>
+          <div>
+            <div class="text-sm text-gray-500">Value</div>
+            <div class="font-semibold">{frontmatter.domainValue}</div>
+          </div>
+          <div>
+            <div class="text-sm text-gray-500">Report Type</div>
+            <div class="font-semibold">{frontmatter.reportType}</div>
+          </div>
+        </div>
+
+        {/* Meta Information */}
+        <div class="flex gap-2 mt-4 items-center flex-wrap md:flex-nowrap">
+          <span class="text-gray-400">
+            {frontmatter.author}
+          </span>
+          <span class="text-gray-400">•</span>
+          <time class="text-gray-400" datetime={frontmatter.publishDate}>
+            {getFormattedDate(frontmatter.publishDate)}
+          </time>
+          <span class="text-gray-400 hidden md:block">•</span>
+          <div class="w-full md:w-auto flex flex-wrap gap-3">
+            {frontmatter.tags.map((tag) => (
+              <span class="text-sm bg-gray-100 px-2 py-1 rounded-full text-gray-600">
+                #{tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Report Content */}
+      <div class="prose prose-lg max-w-none">
+        <div class="bg-white rounded-lg  mb-8">
+          <slot />
+        </div>
+      </div>
+
+      {/* Related Reports Section */}
+      {relatedReports.length > 0 && (
+        <div class="mt-16 mb-16">
+          <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
+            Related Domain Reports
+          </h2>
+          <p class="text-lg mt-4 text-slate-600">
+            Explore more domain analysis and insights from our collection of reports.
+          </p>
+
+          <div class="mt-8">
+            <ReportsGrid reports={relatedReports} />
+          </div>
+        </div>
+      )}
+
+      <div class="text-center mt-8">
+        <a
+          href="/reports"
+          class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition"
+          >← Back to Reports</a
+        >
+      </div>
+    </div>
+  </Container>
+</Layout>
